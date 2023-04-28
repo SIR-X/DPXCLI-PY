@@ -63,3 +63,6 @@ match args.command:
 
     case "verify":
         modules.show_verify(args.wallet, args.secret)
+
+    case _:
+        parser.print_help()
