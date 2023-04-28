@@ -3,21 +3,16 @@ from requests.api import get as req_get, post as req_post
 from colorama import init, Fore
 from typing   import Literal
 
-
 DPXAPI = "https://dpx.developix.ir/api"
 PROGNAME = "dxpcli"
 
 init()
 
-
 def show_error(result: dict) -> None:
-    max_length = max(map(len, result)) + 1
-
-    print("\n".join(
-        f"{Fore.RED + key.title()}:{(max_length - key.__len__()) * ' '}{Fore.RESET + value}"
-        for key, value in result.items()
-    ))
-
+    print(
+        f"{Fore.RED}Error code: {Fore.RESET} {result['error']}\n"
+        f"{Fore.RED}Error info: {Fore.RESET} {result['info']}"
+    )
 
 def show_box(result: dict | list) -> None:
     max_length = 45
@@ -143,3 +138,4 @@ class modules:
         if result:
             print(
                 f"{Fore.CYAN}Secret has been revoked, the new Secret is: {Fore.LIGHTCYAN_EX + result + Fore.RESET}")
+
