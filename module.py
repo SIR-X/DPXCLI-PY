@@ -86,20 +86,6 @@ class modules:
                 f"{Fore.CYAN}Balance is: {Fore.LIGHTCYAN_EX}{result} DPX{Fore.RESET}")
 
     @classmethod
-    def show_help(self) -> None:
-        print(
-            f"{Fore.LIGHTCYAN_EX}Usage: {Fore.RESET + PROGNAME} [command] [options]",
-            f"{Fore.LIGHTCYAN_EX}balance     {Fore.RESET} - retrieves the balance of the wallet",
-            f"{Fore.LIGHTCYAN_EX}help        {Fore.RESET} - shows this help menu",
-            f"{Fore.LIGHTCYAN_EX}revoke      {Fore.RESET} - revokes the secret of the wallet and returns the new secret",
-            f"{Fore.LIGHTCYAN_EX}transaction {Fore.RESET} - retrieves information of the given transaction id",
-            f"{Fore.LIGHTCYAN_EX}transactions{Fore.RESET} - retrieves transactions in descending order from specified offset (default is 0)",
-            f"{Fore.LIGHTCYAN_EX}transfer    {Fore.RESET} - transfers specified amount of DPX from departure wallet to destination wallet",
-            f"{Fore.LIGHTCYAN_EX}verify      {Fore.RESET} - verifies a wallet credentials",
-            sep="\n"
-        )
-
-    @classmethod
     def show_transfer(self, departure: str, secret: str, destination: str, amount: int) -> None:
         data = {
             "departure": departure,
